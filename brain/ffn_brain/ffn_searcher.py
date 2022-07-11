@@ -57,7 +57,8 @@ class FFnSearcher:
                 data = json.loads(response.text)
                 res_metadata.append(data)
                 time.sleep(2)
-            except:
+            except Exception as e:
+                print(e)
                 print('Could not get metadata response for: ', story_id)
                 time.sleep(2)
         
