@@ -1,4 +1,6 @@
 from os import link
+from pydoc import describe
+from turtle import title
 from discord import Embed, Colour, embeds
 from botutils.constants import DOCS_URL, HONEYSUCKLE_SUPPORT_SERVER_URL, ALL_METADATA_KEYS
 
@@ -314,4 +316,34 @@ def AO3AUProfileEmbedMaker(au_link_ao3, au_name_ao3, au_intro_line_ao3, au_story
             inline = False
         )
     
+    return embed
+
+
+def embed_starboard_channel(message):
+    """
+    embed message to send in starboard channel
+    """
+
+    embed = Embed(
+        description = f"{message.content}"
+    )
+    
+    embed.set_author(name = message.author.name, icon_url=message.author.avatar_url)
+
+    if len(message.attachments):
+        for attachment in message.attachments:
+            if attachment.content_type == "image/webp":
+                embed.set_image(url=attachment.url)
+                break
+            else:
+                embed.add_field(name="File(s) attached.", value="Jump to message to view.", inline=False)
+    
+    embed.add_field(
+            name = f"Jump to message",
+            value = f"[Link]({message.jump_url})",
+            inline=False
+        )
+
+    embed.add_field(name = "Sent on: ", value = str(message.created_at)[:10], inline=False)
+
     return embed

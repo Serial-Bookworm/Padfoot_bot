@@ -49,6 +49,8 @@ watchgod = "0.8.1"
 wcwidth = "0.2.5"
 websockets = "10.3"
 yarl = "1.7.2"
+black = "^22.6.0"
+isort = "^5.10.1"
 
 [tool.poetry.dev-dependencies]
 

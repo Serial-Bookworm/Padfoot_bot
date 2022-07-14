@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+GUILD_3H_ID = 685366333319151636
+
 STATUS_ACTIVITY_DICT = {
     '.help' : discord.ActivityType.listening,
     'Love the way you link!' : discord.ActivityType.playing,
@@ -46,3 +48,6 @@ ALL_METADATA_KEYS = [
 ]
 
 IS_URL_REGEX  =  r"(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:/[^\s]*)?"
+
+STARBOARD_CHANNEL_3H = 685903319809392799 # for test bot server: 996619627150983178
+STARBOARD_MOD_API_URL = os.environ.get("HS_API_STARBOARD_3H")
