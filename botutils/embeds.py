@@ -1,7 +1,4 @@
-from os import link
-from pydoc import describe
-from turtle import title
-from discord import Embed, Colour, embeds
+from discord import Embed, Colour
 from botutils.constants import DOCS_URL, HONEYSUCKLE_SUPPORT_SERVER_URL, ALL_METADATA_KEYS
 
 def get_help_embed():
