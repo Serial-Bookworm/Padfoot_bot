@@ -48,6 +48,9 @@ jobs:
     runs-on: ubuntu-latest   
     needs: [build_and_push_to_hub]
     steps:
+      - uses: KengoTODA/actions-setup-docker-compose@main
+        with:
+          version: '1.29.2'
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         # Don't forget to add env vars as secrets on GitHub
