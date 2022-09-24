@@ -1,5 +1,5 @@
 build:
-	docker compose up --build -d --remove-orphans
+	docker compose up --build -d --remove-orphans -t padfoot_bot_latest
 
 up:
 	docker compose up -d
