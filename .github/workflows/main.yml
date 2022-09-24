@@ -64,8 +64,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             echo "Pull new image"
-            docker-compose -f /home/${{ secrets.VPS_SSH_USERNAME }}/serial_bookworm_project/padfoot_bot/Padfoot_bot/docker-compose.yml pull
-            echo "Restarting the container"
-            make up
+            docker pull ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO_NAME}}:padfoot_bot_latest
+            docker run ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO_NAME}}:padfoot_bot_latest
             echo "Deleting old image..."
             docker image prune -f
