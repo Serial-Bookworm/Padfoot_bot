@@ -30,6 +30,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Create a temporary .env file for storing docker compose variables 
+      run: |
+        touch .env
+        echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
+        echo DOCKERHUB_REPO_NAME=${{ secrets.DOCKERHUB_REPO_NAME }} >> .env
     
     - name: Build the Docker image
       run: make build
