@@ -12,36 +12,36 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # # This workflow contains multiple jobs
-  # build_and_push_to_hub:
-  #   # The type of runner that the job will run on
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
+  # This workflow contains multiple jobs
+  build_and_push_to_hub:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
     
-  #   - name: Set up QEMU
-  #     uses: docker/setup-qemu-action@v1
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
 
-  #   - name: Set up Docker Buildx
-  #     uses: docker/setup-buildx-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
 
-  #   - name: Login to DockerHub
-  #     uses: docker/login-action@v1
-  #     with:
-  #       username: ${{ secrets.DOCKERHUB_USERNAME }}
-  #       password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  #   - name: Create a temporary .env file for storing docker compose variables 
-  #     run: |
-  #       touch .env
-  #       echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
-  #       echo DOCKERHUB_REPO_NAME=${{ secrets.DOCKERHUB_REPO_NAME }} >> .env
+    - name: Create a temporary .env file for storing docker compose variables 
+      run: |
+        touch .env
+        echo DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} >> .env
+        echo DOCKERHUB_REPO_NAME=${{ secrets.DOCKERHUB_REPO_NAME }} >> .env
     
-  #   - name: Build the Docker image
-  #     run: make build
+    - name: Build the Docker image
+      run: make build
 
-  #   - name: Push the Docker images
-  #     run: docker push ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO_NAME}}:padfoot_bot_latest
+    - name: Push the Docker images
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_REPO_NAME}}:padfoot_bot_latest
 
 
   deploy:
