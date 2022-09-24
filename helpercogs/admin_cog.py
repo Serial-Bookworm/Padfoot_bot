@@ -11,7 +11,7 @@ class AdminCog(Cog):
     @is_owner()
     @command('ping')
     async def ping(self, ctx):
-        message = await ctx.send("pong")
+        message = await ctx.send("Hellooooo")
         await message.add_reaction('👋🏼')
 
     @check_any(is_owner(), has_role("Head Boy"))
