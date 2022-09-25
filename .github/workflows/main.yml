@@ -63,7 +63,8 @@ jobs:
           # passphrase
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |  
-            cd ${{ secrets.PROJECT_PATH }} | git pull https://${{ secrets.TOKEN }}@github.com/Serial-Bookworm/Padfoot_bot.git 
+            cd ${{ secrets.PROJECT_PATH }} 
+            git pull origin main 
             make down-v
             make build
             echo "Deleting old image(s)..."
