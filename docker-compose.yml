@@ -1,8 +1,8 @@
 version: "3.9"
 services:
   bot:
-    # build: .
-    image: "${DOCKERHUB_USERNAME}/${DOCKERHUB_REPO_NAME}:padfoot_bot_latest"
+    build: .
+    # image: "padfoot_bot_latest"
     network_mode: "host"
     volumes:
       - .:/padfoot_bot_src
