@@ -248,11 +248,18 @@ def get_blacklist_embed(data):
             colour=Colour(0xDB6F77)
         )
     for i, ficdict in enumerate(data):
-        embed.add_field(
-            name= f'Rank {i+1}: {ficdict["story_name"]} by {ficdict["author_name"]} with {ficdict["votes"]} votes.',
+        if ficdict["votes"] == 1:
+            embed.add_field(
+            name= f'Rank {i+1}: {ficdict["story_name"]} by {ficdict["author_name"]} with {ficdict["votes"]} vote.',
             value="\u200b",
             inline=False
         )
+        else:
+            embed.add_field(
+                name= f'Rank {i+1}: {ficdict["story_name"]} by {ficdict["author_name"]} with {ficdict["votes"]} votes.',
+                value="\u200b",
+                inline=False
+            )
     
     return embed
 
