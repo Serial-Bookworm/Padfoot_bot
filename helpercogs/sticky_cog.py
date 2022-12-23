@@ -44,7 +44,7 @@ class StickyCog(Cog):
             )
             msg = await message.channel.send(embed=embed)
             with open('static/sticky_last_message_hhr_plus_rec.txt', 'w') as f:
-                f.write(msg.id)
+                f.write(str(msg.id))
 
 
 def setup(bot):
