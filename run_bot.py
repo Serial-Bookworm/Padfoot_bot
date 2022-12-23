@@ -151,6 +151,7 @@ async def run():
         bot.load_extension("helpercogs.admin_cog")
         bot.load_extension("helpercogs.fic_blacklist")
         bot.load_extension("helpercogs.ffn_au_profile_cog")
+        bot.load_extension("helpercogs.sticky_cog")
         asyncio.create_task(bot.start(TOKEN))
     except:
         await bot.logout()
